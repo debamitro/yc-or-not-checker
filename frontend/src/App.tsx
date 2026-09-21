@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { getApiUrl } from './api'
 
 type Verdict = 'yes' | 'no' | 'maybe'
 
@@ -18,7 +19,7 @@ function App() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('/api/batches')
+    fetch(getApiUrl('/api/batches'))
       .then(res => res.json())
       .then(data => {
         setBatches(data.batches)
@@ -38,7 +39,7 @@ function App() {
     setResult(null)
 
     try {
-      const res = await fetch('/api/check_idea', {
+      const res = await fetch(getApiUrl('/api/check_idea'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ idea, batch }),
