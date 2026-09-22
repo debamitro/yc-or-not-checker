@@ -1,0 +1,60 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page-header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.back-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+}
+
+.page-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+}
+
+.page-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.last-updated {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.7;
+}

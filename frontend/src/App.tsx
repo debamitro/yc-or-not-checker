@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { getApiUrl } from './api'
+import Footer from './Footer'
 
 type Verdict = 'yes' | 'no' | 'maybe'
 
@@ -75,7 +76,7 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>YC Idea Checker</h1>
+        <h1>YC-or-not-YC</h1>
         <p className="subtitle">Would your startup idea have made it into a YC batch?</p>
       </header>
 
@@ -138,9 +139,10 @@ function App() {
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   )
 }
 
 export default App
-

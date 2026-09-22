@@ -45,6 +45,8 @@
   margin: 0 auto;
   min-height: 100svh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
