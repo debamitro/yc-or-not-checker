@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { getApiUrl } from './api'
 import Footer from './Footer'
+import { useGoogleAnalytics, trackEvent } from './useGoogleAnalytics'
 
 type Verdict = 'yes' | 'no' | 'maybe'
-
 interface CheckIdeaResponse {
   verdict: Verdict
   confidence: number
@@ -12,6 +12,7 @@ interface CheckIdeaResponse {
 }
 
 function App() {
+  useGoogleAnalytics()
   const [idea, setIdea] = useState('')
   const [batch, setBatch] = useState('')
   const [batches, setBatches] = useState<string[]>([])
@@ -52,8 +53,8 @@ function App() {
         setError(data.error || 'Something went wrong')
         return
       }
-
       setResult(data)
+      trackEvent('check_idea', 'engagement', batch, Math.round(data.confidence * 100))
     } catch (err: any) {
       setError(err.message || 'Network error')
     } finally {
