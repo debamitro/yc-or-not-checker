@@ -44,6 +44,7 @@ function initGoogleAnalytics() {
  */
 export function trackPageView(path: string) {
   if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
+  if (typeof window.gtag !== 'function') return;
   window.gtag('config', GA_MEASUREMENT_ID, {
     page_path: path,
   });
@@ -63,6 +64,7 @@ export function trackEvent(
   value?: number
 ) {
   if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
+  if (typeof window.gtag !== 'function') return;
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
